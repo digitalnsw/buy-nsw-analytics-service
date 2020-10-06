@@ -7,7 +7,6 @@ module AnalyticsService
 
     field :user_id, :integer
     field :action
-    field :aud
     field :host
     field :redirect_string
     field :login_url
