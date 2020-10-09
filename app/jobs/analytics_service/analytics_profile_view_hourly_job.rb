@@ -3,7 +3,7 @@ module AnalyticsService
     def perform
       hour = 1.hour.ago.utc.strftime('H_%Y-%m-%d_%H')
       counters = {}
-      AnalyticsService::DataAtom.where(date_hour: hour, 'path.begins_with' => '/ict/supplier/profile/').each do |atom|
+      AnalyticsService::DataAtom.where(date_hour: hour, 'path.begins_with' => '/supplier/profile/').each do |atom|
         if counters[atom.entity_id].nil?
           counters[atom.entity_id] = {
             total_view: 0,
