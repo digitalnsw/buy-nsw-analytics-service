@@ -6,7 +6,7 @@ group :test do
   gem 'rails', '~> 5.2.4'
   gem 'pg'
   gem 'dotenv-rails'
-  gem 'shared_libraries', git: 'https://github.com/digitalnsw/buy-nsw-shared-libraries', tag: 'v3'
+  gem 'shared_libraries', git: 'https://github.com/digitalnsw/buy-nsw-shared-libraries', tag: 'v72'
 
   gem 'minitest'
   gem 'minitest-around'
