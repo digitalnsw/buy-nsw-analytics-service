@@ -1,7 +1,9 @@
 module AnalyticsService
   class AnalyticsProfileViewMonthlyJob < SharedModules::ApplicationJob
     def perform
-      supplier_ids = ::SharedResources::RemotePublicSeller.all_active.map(&:id)
+      # FIXME: this line timeouts so changed to non soa
+      # supplier_ids = ::SharedResources::RemotePublicSeller.all_active.map(&:id)
+      supplier_ids = Seller.live.pluck(:id)
       range = 1.month.ago.utc.strftime('D_%Y-%m')
       counters = {}
       supplier_ids.each do |supplier_id|
