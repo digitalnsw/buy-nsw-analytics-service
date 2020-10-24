@@ -1,18 +1,20 @@
 module AnalyticsService
-  class UserSync
+  class UserSyncTrack
     include Dynamoid::Document
 
-    table name: :user_sync, key: :date_hour, capacity_mode: :on_demand
+    table name: :user_sync_track, key: :user_id, capacity_mode: :on_demand
     range :sent_at, :datetime
 
-    field :user_id, :integer
     field :status
     field :response
     field :token
     field :url
     field :action
 
-    local_secondary_index range_key: :user_id
+    def visit_date_time
+      sent_at.strftime("%d/%b/%Y %H:%M:%S")
+    end
+
     local_secondary_index range_key: :status
   end
 end
