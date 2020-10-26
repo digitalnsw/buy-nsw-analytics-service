@@ -6,6 +6,7 @@ module AnalyticsService
     range :sent_at, :datetime
 
     field :user_id, :integer
+    field :uuid
     field :action
     field :host
     field :redirect_string
