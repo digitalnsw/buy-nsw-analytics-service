@@ -10,6 +10,7 @@ module AnalyticsService
     field :host
     field :redirect_string
     field :login_url
+    field :token
 
     local_secondary_index range_key: :user_id
     local_secondary_index range_key: :action
