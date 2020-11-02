@@ -20,6 +20,8 @@ module AnalyticsService
         user_roles: session_user&.roles,
         entity_id: uri.path.match(/\d+/)&.to_s.to_i,
         action: sanitize(full_sanitize(params[:action])),
+        true_user_id: true_user&.id,
+        remote_ip: { ip: request.remote_ip.to_s, x_forwaded_for: request.headers['X-Forwarded-For'] }.to_json,
       )
       data_atom.save
 

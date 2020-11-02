@@ -15,6 +15,8 @@ module AnalyticsService
     field :user_email
     field :user_roles, :set, of: :string
     field :action
+    field :true_user_id
+    field :remote_ip
 
     local_secondary_index range_key: :user_agent
     local_secondary_index range_key: :entity_id
